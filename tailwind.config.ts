@@ -47,6 +47,11 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        // UNIVida Custom Colors
+        "univida-orange": "hsl(var(--univida-orange))",
+        "univida-blue": "hsl(var(--univida-blue))",
+        "univida-blue-dark": "hsl(var(--univida-blue-dark))",
+        "univida-gray": "hsl(var(--univida-gray))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
