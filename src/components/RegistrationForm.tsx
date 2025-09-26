@@ -7,17 +7,17 @@ import { useToast } from "@/hooks/use-toast";
 
 const RegistrationForm = () => {
   const [formData, setFormData] = useState({
-    nombre: "",
-    ci: "",
+    email: "",
+    password: "",
     placa: ""
   });
   const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     // Basic validation
-    if (!formData.nombre.trim() || !formData.ci.trim()) {
+    if (!formData.email.trim() || !formData.password.trim()) {
       toast({
         title: "Error",
         description: "Por favor complete los campos obligatorios",
@@ -26,18 +26,45 @@ const RegistrationForm = () => {
       return;
     }
 
-    // Success message
-    toast({
-      title: "¡Registro exitoso!",
-      description: "Te contactaremos pronto con tu descuento del 3%",
-    });
+    try {
+      // Enviar datos al backend
+      const response = await fetch('http://localhost:3001/api/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
 
-    // Reset form
-    setFormData({
-      nombre: "",
-      ci: "",
-      placa: ""
-    });
+      const result = await response.json();
+
+      if (result.success) {
+        toast({
+          title: "¡Registro exitoso!",
+          description: "Te contactaremos pronto con tu descuento del 3%",
+        });
+
+        // Reset form
+        setFormData({
+          email: "",
+          password: "",
+          placa: ""
+        });
+      } else {
+        toast({
+          title: "Error",
+          description: result.message || "Error al procesar el registro",
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
+      console.error('Error al enviar datos:', error);
+      toast({
+        title: "Error de conexión",
+        description: "No se pudo conectar con el servidor. Inténtalo más tarde.",
+        variant: "destructive",
+      });
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -63,34 +90,34 @@ const RegistrationForm = () => {
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <Label htmlFor="nombre" className="text-sm font-medium text-foreground">
-                Nombre *
+              <Label htmlFor="email" className="text-sm font-medium text-foreground">
+                Correo Electrónico *
               </Label>
               <Input
-                id="nombre"
-                name="nombre"
-                type="text"
+                id="email"
+                name="email"
+                type="email"
                 required
-                value={formData.nombre}
+                value={formData.email}
                 onChange={handleChange}
                 className="mt-1 border-primary/30 focus:border-primary"
-                placeholder="Ingrese su nombre completo"
+                placeholder="Ingrese su correo electrónico"
               />
             </div>
 
             <div>
-              <Label htmlFor="ci" className="text-sm font-medium text-foreground">
-                CI *
+              <Label htmlFor="password" className="text-sm font-medium text-foreground">
+                Contraseña *
               </Label>
               <Input
-                id="ci"
-                name="ci"
-                type="text"
+                id="password"
+                name="password"
+                type="password"
                 required
-                value={formData.ci}
+                value={formData.password}
                 onChange={handleChange}
                 className="mt-1 border-primary/30 focus:border-primary"
-                placeholder="Ingrese su Cédula de Identidad"
+                placeholder="Ingrese su contraseña"
               />
             </div>
 
