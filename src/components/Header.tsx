@@ -20,7 +20,7 @@ const Header = () => {
           <div className="flex items-center">
             <div className="flex items-center space-x-2">
               <div className="w-8 h-8 bg-gradient-to-r from-primary to-accent rounded"></div>
-              <span className="text-xl font-bold text-primary">UNIVida</span>
+              <span className="text-xl font-bold text-primary">UNIVIDA</span>
               <span className="text-sm text-univida-gray">Seguros y Reaseguros Personales</span>
             </div>
           </div>

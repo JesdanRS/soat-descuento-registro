@@ -27,8 +27,8 @@ const RegistrationForm = () => {
     }
 
     try {
-      // Enviar datos al backend
-      const response = await fetch('http://localhost:3001/api/register', {
+      // Enviar datos al backend (ruta relativa para funcionar detrás de Nginx/EC2)
+      const response = await fetch('/api/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
