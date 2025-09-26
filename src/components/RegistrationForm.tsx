@@ -41,7 +41,7 @@ const RegistrationForm = () => {
       if (result.success) {
         toast({
           title: "¡Registro exitoso!",
-          description: "Te contactaremos pronto con tu descuento del 3%",
+          description: "Te contactaremos pronto con tu descuento del 10%",
         });
 
         // Reset form
@@ -80,7 +80,7 @@ const RegistrationForm = () => {
       <Card className="border-2 border-primary/20 shadow-lg">
         <CardHeader className="text-center pb-6">
           <CardTitle className="text-2xl font-bold text-primary mb-2">
-            ¡Registrate para obtener el 3% de descuento!
+            ¡Registrate para obtener el 10% de descuento!
           </CardTitle>
           <p className="text-muted-foreground">
             En tu próxima compra del SOAT

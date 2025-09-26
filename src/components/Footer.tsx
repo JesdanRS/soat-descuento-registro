@@ -59,24 +59,16 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* APS Logo section */}
+          {/* APS Imagen */}
           <div className="mt-8 py-4 border-t border-white/20">
             <div className="bg-white rounded p-3 text-center">
-              <div className="flex items-center justify-center space-x-2">
-                <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-blue-800 rounded flex items-center justify-center">
-                  <span className="text-white font-bold text-lg">APS</span>
-                </div>
-                <div className="text-xs text-gray-600 max-w-md">
-                  ESTE OPERADOR ESTÁ BAJO LA FISCALIZACIÓN Y CONTROL DE LA AUTORIDAD DE FISCALIZACIÓN Y CONTROL DE 
-                  PENSIONES Y SEGUROS -APS
-                </div>
-              </div>
+              <img src="/assets/image2.png" alt="APS" className="mx-auto h-16 w-auto object-contain" />
             </div>
           </div>
 
           {/* Company name */}
           <div className="text-center mt-6 pt-4 border-t border-white/20">
-            <p className="text-sm">SEGUROS Y REASEGUROS PERSONALES UNIVida S.A.</p>
+            <p className="text-sm">SEGUROS Y REASEGUROS PERSONALES UNIVIDA S.A.</p>
           </div>
         </div>
       </div>
